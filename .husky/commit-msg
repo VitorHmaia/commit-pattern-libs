@@ -1,1 +1,5 @@
-exec < /dev/tty && git cz --hook || true
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+#Runs commit lint to check if the commit pattern is being followed after the git command 
+npx --no -- commitlint --edit ${1}
